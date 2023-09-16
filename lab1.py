@@ -7,9 +7,9 @@ url = "https://www.cbr-xml-daily.ru/archive/2022/09/08/daily_json.js"
 response = requests.get(url)
 data = json.loads(response.text)
 
-with open('data.csv', 'w', newline='') as file:
+with open('data.csv', 'w', newline='',encoding="utf-8") as file:
     valute_data = data['Valute']
     wr=csv.writer(file)
     for valute in valute_data.values():    
-        wr.writerow(f"Date: {data['Date']}")
+        wr.writerow(f"Дата: {data['Date']}")
         wr.writerow(f"{valute['Name']} курс: {valute['Value']}")
