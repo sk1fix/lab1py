@@ -1,7 +1,13 @@
 import requests
+import json
 
-from bs4 import BeautifulSoup
+url = "https://www.cbr-xml-daily.ru/archive/2022/09/08/daily_json.js"
 
-url='https://www.cbr-xml-daily.ru/archive/2022/09/08/daily_json.js'
+response = requests.get(url)
+data = json.loads(response.text)
 
-html_text = requests.get(url)
+
+valute_data = data['Valute']
+for valute in valute_data.values():    
+    print(f"Date: {data['Date']}")
+    print(f"{valute['Name']} rate: {valute['Value']}")
