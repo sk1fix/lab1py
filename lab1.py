@@ -11,5 +11,6 @@ with open('data.csv', 'w', newline='',encoding="utf-8") as file:
     valute_data = data['Valute']
     wr=csv.writer(file)
     for valute in valute_data.values():    
-        wr.writerow((f"Дата: {data['Date']}").split(','))
-        wr.writerow((f"{valute['Name']} курс: {valute['Value']}").split(','))
+        if valute['CharCode'] == 'USD':
+            wr.writerow((f"Дата: {data['Date']}").split(','))
+            wr.writerow((f"{valute['Name']} курс: {valute['Value']}").split(','))
