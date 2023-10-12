@@ -1,6 +1,6 @@
-import requests
 import json
 import csv
+import requests
 
 url = "https://www.cbr-xml-daily.ru/archive/2022/09/08/daily_json.js"
 
